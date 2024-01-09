@@ -8,10 +8,8 @@ export default class Export extends Command {
   ]
 
   static flags = {
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: Flags.boolean({char: 'f'}),
+    metricsServer: Flags.boolean({char: 'm', description: 'Start Metrics Server'}),
+    daemon: Flags.boolean({char: 'd', description: 'Run as a Daemon'}),
   }
 
   static args = {
