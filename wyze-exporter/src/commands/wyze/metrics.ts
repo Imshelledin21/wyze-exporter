@@ -56,9 +56,6 @@ export default class WyzeMetrics extends Command {
 
   }
 
-  // Key Id 13c068ac-9853-49a2-a171-9add66dd877b
-  // Api Key fJnVrCwZg6lsMuF8XchBBcoOPrImn2nsLADYJ05vCaC7A6rGnX6LNA6R2K76
-
   private async SetRunConfig() : Promise<RunConfig> {
     const {args, flags} = await this.parse(WyzeMetrics)
     const runConfig = new RunConfig(flags.daemon, flags.metricsServer, flags.username, flags.password, flags.apiKey, flags.keyId, flags.device_name)
