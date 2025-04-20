@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/wyze-exporter/obj
+/wyze-exporter/.vs/wyze-exporter
+/wyze-exporter/bin/Debug/net8.0
