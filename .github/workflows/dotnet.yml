@@ -21,8 +21,19 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./wyze-exporter/wyze-exporter.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ./wyze-exporter/wyze-exporter.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ./wyze-exporter/wyze-exporter.sln --no-build --verbosity normal
+    - name: Build Docker Image
+      working-directory: ./wyze-exporter
+      run: docker build . -t imshelledin21/wyze-exporter:latest -t imshelledin21/wyze-exporter:v0.0.1
+    - name: Log into Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: imshelledin21
+        password: ${{ secrets.DOCKER_TOKEN }}
+    - name: Push image to Docker Hub
+      run: docker push imshelledin21/wyze-exporter -a
+
